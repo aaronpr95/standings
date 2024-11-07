@@ -12,7 +12,7 @@ jobs:
     steps:
       # Paso 1: Clonar el repositorio
       - name: Check out the repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Paso 2: Configurar Python e instalar dependencias
       - name: Set up Python
