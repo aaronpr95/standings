@@ -35,4 +35,3 @@ jobs:
         with:
           branch: gh-pages  # Rama de despliegue para GitHub Pages
           folder: src       # Carpeta que contiene los archivos a desplegar
-          token: ${{ secrets.GITHUB_TOKEN }}
