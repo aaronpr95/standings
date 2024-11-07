@@ -9,7 +9,7 @@ def find_latest_day(directory):
     """
     Finds the latest matchday number in the given directory.
     """
-    files = [f for f in os.listdir('resources/docs/' + directory) if re.match(rf'J\d+ - .+\.pdf$', f)]
+    files = [f for f in os.listdir('src/resources/docs/' + directory) if re.match(rf'J\d+ - .+\.pdf$', f)]
     
     max_jornada = 0
     for file in files:
@@ -24,7 +24,7 @@ def find_latest_pdf(directory):
     """
     Finds the latest PDF file in the given directory.
     """
-    files = [f for f in os.listdir('resources/docs/' + directory) if re.match(rf'J\d+ - .+\.pdf$', f)]
+    files = [f for f in os.listdir('src/resources/docs/' + directory) if re.match(rf'J\d+ - .+\.pdf$', f)]
     
     max_jornada = 0
     latest_file = None
@@ -49,7 +49,7 @@ def extract_classification_data(pdf_path):
     list: A list of dictionaries with each team's classification data.
     """
     teams_data = []
-    with pdfplumber.open('resources/docs/' + pdf_path) as pdf:
+    with pdfplumber.open('src/resources/docs/' + pdf_path) as pdf:
         for page in pdf.pages:
             text = page.extract_text()
             if text:
@@ -90,16 +90,16 @@ def find_badge_path(team_name):
     # Check for both .png and .jpg files
     for extension in ['png', 'jpg']:
         # Try the base name first
-        badge_path = f"resources/img/{base_name}.{extension}"
+        badge_path = f"src/resources/img/{base_name}.{extension}"
         if os.path.exists(badge_path):
-            return badge_path
+            return badge_path[4:]
         
         # If team name ends with _b, check the name without _b
         if base_name.endswith('_b') or base_name.endswith('_c') or base_name.endswith('_a'):
             base_name_no_b = base_name[:-2] 
-            badge_path_no_b = f"resources/img/{base_name_no_b}.{extension}"
+            badge_path_no_b = f"src/resources/img/{base_name_no_b}.{extension}"
             if os.path.exists(badge_path_no_b):
-                return badge_path_no_b
+                return badge_path_no_b[4:]
     
     # Return a default placeholder image if no badge is found
     return "resources/img/default_badge.png"
@@ -197,9 +197,9 @@ def generate_html(teams_data, division):
 </html>
     """
     if division == PRIMERA:
-        output_file = "output/primera_standings_last.html"
+        output_file = "src/primera_standings.html"
     elif division == HONOR:
-        output_file = "output/honor_standings_last.html"
+        output_file = "src/honor_standings.html"
 
     # Write output file
     with open(output_file, "w", encoding="utf-8") as f:
@@ -211,8 +211,8 @@ if __name__ == "__main__":
 
     primera_data = extract_classification_data(path_primera)
     generate_html(primera_data, PRIMERA)
-    print("Standing HTML generated as 'primera_standings_last.html'")
+    print("Standing HTML generated as 'primera_standings.html'")
 
     honor_data = extract_classification_data(path_honor)
     generate_html(honor_data, HONOR)
-    print("Standing HTML generated as 'honor_standings_last.html'")
+    print("Standing HTML generated as 'honor_standings.html'")

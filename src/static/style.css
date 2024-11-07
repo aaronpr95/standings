@@ -155,3 +155,32 @@ tbody tr.descent td:nth-child(12) {
 tbody tr.descent:nth-child(even) {
     background-color: #ffebeb; /* light red to even rows */
 }
+
+/* To index.html */
+.selection-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.selection-button {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 15px;
+    background-color: #007bff; /* Color principal */
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.selection-button:hover {
+    background-color: #0056b3; /* Color más oscuro en hover */
+    transform: scale(1.05);    /* Ligero aumento en tamaño */
+}
+
+.selection-button:active {
+    background-color: #003373; /* Color más oscuro al hacer clic */
+}
