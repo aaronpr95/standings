@@ -1,0 +1,38 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Ejecutar el workflow cuando haya cambios en la rama `main`
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Paso 1: Clonar el repositorio
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      # Paso 2: Configurar Python e instalar dependencias
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Paso 3: Ejecutar el generador
+      - name: Run generator script
+        run: python generator.py
+
+      # Paso 4: Desplegar en GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # Rama de despliegue para GitHub Pages
+          folder: src       # Carpeta que contiene los archivos a desplegar
+          token: ${{ secrets.GITHUB_TOKEN }}
