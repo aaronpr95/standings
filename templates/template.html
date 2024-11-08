@@ -8,16 +8,32 @@
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-        <div class="header text-center">
-            <h3>Clasificación {{ "División de Honor" if division == "honor" else "Primera División" }} - Jornada {{ day }}</h3>
-            <h3><small class="text-body-secondary">Liga Regional de Frontenis Castilla y León</small></h3>
+    <nav class="navbar navbar-expand-lg bg-primary " data-bs-theme="dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">{{ "División de Honor" if division == "honor" else "Primera División" }}</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ "active" if division == "honor" else ""}}" href="honor_standings.html">Honor</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ "active" if division == "primera" else ""}}" href="primera_standings.html">Primera</a>
+              </li>
+          </div>
         </div>
-    <div class="container-fluid px-0 px-sm-3">
+      </nav>
+
+    <div class="container-fluid px-0 px-mb-3 table-responsive-sm">
         <table class="table-custom short-mode">
             <thead>
                 <tr>
-                    <th></th>
-                    <th></th>
+                    <th class="sticky-col"></th>
                     <th>Equipo</th>
                     <th data-tooltip="Partidos Jugados">PJ</th>
                     <th data-tooltip="Partidos Ganados">PG</th>
@@ -27,14 +43,13 @@
                     <th class="hidden" data-tooltip="Tantos a Favor">TF</th>
                     <th class="hidden" data-tooltip="Tantos en Contra"">TC</th>
                     <th class="hidden" data-tooltip="Diferencia de tantos">Dif</th>
-                    <th>Puntos</th>
+                    <th class="sticky-right">Puntos</th>
                 </tr>
             </thead>
             <tbody>
                 {% for team in teams %}
                 <tr class="{{ team.descent_class }}">
-                    <td>{{ team.position }}</td>
-                    <td><img src="{{ team.badge_path }}" alt="Escudo {{ team.name }}" width="30"></td>
+                    <td class="sticky-col"><div class="team-info"> {{ team.position }} <img src="{{ team.badge_path }}" alt="Escudo {{ team.name }}" width="30"></div></td>
                     <td>{{ team.name }}</td>
                     <td>{{ team.pj }}</td>
                     <td>{{ team.pg }}</td>
@@ -44,7 +59,7 @@
                     <td class="hidden">{{ team.tf }}</td>
                     <td class="hidden">{{ team.tc }}</td>
                     <td class="hidden">{{ team.diff }}</td>
-                    <td>{{ team.points }}</td>
+                    <td class="sticky-right">{{ team.points }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

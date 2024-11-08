@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const table = document.querySelector('table');
     const hiddenCells = document.querySelectorAll('td.hidden');
     const hiddenHeaders = document.querySelectorAll('th.hidden');
+    const rows = document.querySelectorAll("tbody tr");
+    rows.forEach(row => {
+        const bgColor = window.getComputedStyle(row).backgroundColor;
+        const stickyCols = row.querySelectorAll(".sticky-col, .sticky-right");
+        stickyCols.forEach(col => {
+            col.style.backgroundColor = bgColor;
+        });
+    });
 
     // Add an event listener for the toggle button
     toggleViewLink.addEventListener('click', function(event) {
