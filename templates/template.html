@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificación de {{ "División de Honor" if division == "honor" else "Primera División" }}</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Liga Regional de Frontenis Castilla y León</h2>
+            <h1>Clasificación {{ "División de Honor" if division == "honor" else "Primera División" }} - Jornada {{ day }}</h1>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Equipo</th>
+                    <th data-tooltip="Partidos Jugados">PJ</th>
+                    <th data-tooltip="Partidos Ganados">PG</th>
+                    <th data-tooltip="Partidos Perdidos">PP</th>
+                    <th class="hidden" data-tooltip="Juegos a Favor">JF</th>
+                    <th class="hidden" data-tooltip="Juegos en Contra">JC</th>
+                    <th class="hidden" data-tooltip="Tantos a Favor">TF</th>
+                    <th class="hidden" data-tooltip="Tantos en Contra"">TC</th>
+                    <th class="hidden" data-tooltip="Diferencia de tantos">Dif</th>
+                    <th>Puntos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for team in teams %}
+                <tr class="{{ team.descent_class }}">
+                    <td>{{ team.position }}</td>
+                    <td><img src="{{ team.badge_path }}" alt="Escudo {{ team.name }}" width="30"></td>
+                    <td>{{ team.name }}</td>
+                    <td>{{ team.pj }}</td>
+                    <td>{{ team.pg }}</td>
+                    <td>{{ team.pp }}</td>
+                    <td class="hidden">{{ team.jf }}</td>
+                    <td class="hidden">{{ team.jc }}</td>
+                    <td class="hidden">{{ team.tf }}</td>
+                    <td class="hidden">{{ team.tc }}</td>
+                    <td class="hidden">{{ team.diff }}</td>
+                    <td>{{ team.points }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="toggle-container">
+        <button id="toggleView">Ver Detalles</button>
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>
