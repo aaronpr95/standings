@@ -8,16 +8,32 @@
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-        <div class="header text-center">
-            <h3>Clasificación División de Honor - Jornada 2</h3>
-            <h3><small class="text-body-secondary">Liga Regional de Frontenis Castilla y León</small></h3>
+    <nav class="navbar navbar-expand-lg bg-primary " data-bs-theme="dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">División de Honor</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="honor_standings.html">Honor</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="primera_standings.html">Primera</a>
+              </li>
+          </div>
         </div>
-    <div class="container-fluid px-0 px-sm-3">
+      </nav>
+
+    <div class="container-fluid px-0 px-mb-3 table-responsive-sm">
         <table class="table-custom short-mode">
             <thead>
                 <tr>
-                    <th></th>
-                    <th></th>
+                    <th class="sticky-col"></th>
                     <th>Equipo</th>
                     <th data-tooltip="Partidos Jugados">PJ</th>
                     <th data-tooltip="Partidos Ganados">PG</th>
@@ -27,14 +43,13 @@
                     <th class="hidden" data-tooltip="Tantos a Favor">TF</th>
                     <th class="hidden" data-tooltip="Tantos en Contra"">TC</th>
                     <th class="hidden" data-tooltip="Diferencia de tantos">Dif</th>
-                    <th>Puntos</th>
+                    <th class="sticky-right">Puntos</th>
                 </tr>
             </thead>
             <tbody>
                 
                 <tr class="">
-                    <td>1</td>
-                    <td><img src="resources/img/puertas_bamar.png" alt="Escudo PUERTAS BAMAR" width="30"></td>
+                    <td class="sticky-col"><div class="team-info"> 1 <img src="resources/img/puertas_bamar.png" alt="Escudo PUERTAS BAMAR" width="30"></div></td>
                     <td>PUERTAS BAMAR</td>
                     <td>4</td>
                     <td>3</td>
@@ -44,12 +59,11 @@
                     <td class="hidden">104</td>
                     <td class="hidden">55</td>
                     <td class="hidden">49</td>
-                    <td>7</td>
+                    <td class="sticky-right">7</td>
                 </tr>
                 
                 <tr class="">
-                    <td>2</td>
-                    <td><img src="resources/img/palencia.jpg" alt="Escudo PALENCIA" width="30"></td>
+                    <td class="sticky-col"><div class="team-info"> 2 <img src="resources/img/palencia.jpg" alt="Escudo PALENCIA" width="30"></div></td>
                     <td>PALENCIA</td>
                     <td>4</td>
                     <td>3</td>
@@ -59,12 +73,11 @@
                     <td class="hidden">125</td>
                     <td class="hidden">112</td>
                     <td class="hidden">13</td>
-                    <td>7</td>
+                    <td class="sticky-right">7</td>
                 </tr>
                 
                 <tr class="">
-                    <td>3</td>
-                    <td><img src="resources/img/la_flecha.jpg" alt="Escudo LA FLECHA" width="30"></td>
+                    <td class="sticky-col"><div class="team-info"> 3 <img src="resources/img/la_flecha.jpg" alt="Escudo LA FLECHA" width="30"></div></td>
                     <td>LA FLECHA</td>
                     <td>4</td>
                     <td>3</td>
@@ -74,12 +87,11 @@
                     <td class="hidden">121</td>
                     <td class="hidden">104</td>
                     <td class="hidden">17</td>
-                    <td>7</td>
+                    <td class="sticky-right">7</td>
                 </tr>
                 
                 <tr class="">
-                    <td>4</td>
-                    <td><img src="resources/img/el_caño.jpg" alt="Escudo EL CAÑO" width="30"></td>
+                    <td class="sticky-col"><div class="team-info"> 4 <img src="resources/img/el_caño.jpg" alt="Escudo EL CAÑO" width="30"></div></td>
                     <td>EL CAÑO</td>
                     <td>4</td>
                     <td>1</td>
@@ -89,12 +101,11 @@
                     <td class="hidden">87</td>
                     <td class="hidden">105</td>
                     <td class="hidden">-18</td>
-                    <td>5</td>
+                    <td class="sticky-right">5</td>
                 </tr>
                 
                 <tr class="">
-                    <td>5</td>
-                    <td><img src="resources/img/laguna.jpg" alt="Escudo LAGUNA" width="30"></td>
+                    <td class="sticky-col"><div class="team-info"> 5 <img src="resources/img/laguna.jpg" alt="Escudo LAGUNA" width="30"></div></td>
                     <td>LAGUNA</td>
                     <td>2</td>
                     <td>2</td>
@@ -104,12 +115,11 @@
                     <td class="hidden">60</td>
                     <td class="hidden">21</td>
                     <td class="hidden">39</td>
-                    <td>4</td>
+                    <td class="sticky-right">4</td>
                 </tr>
                 
                 <tr class="descent">
-                    <td>6</td>
-                    <td><img src="resources/img/la_cistérniga.png" alt="Escudo LA CISTÉRNIGA" width="30"></td>
+                    <td class="sticky-col"><div class="team-info"> 6 <img src="resources/img/la_cistérniga.png" alt="Escudo LA CISTÉRNIGA" width="30"></div></td>
                     <td>LA CISTÉRNIGA</td>
                     <td>4</td>
                     <td>0</td>
@@ -119,12 +129,11 @@
                     <td class="hidden">73</td>
                     <td class="hidden">126</td>
                     <td class="hidden">-53</td>
-                    <td>4</td>
+                    <td class="sticky-right">4</td>
                 </tr>
                 
                 <tr class="descent">
-                    <td>7</td>
-                    <td><img src="resources/img/soria.jpg" alt="Escudo SORIA" width="30"></td>
+                    <td class="sticky-col"><div class="team-info"> 7 <img src="resources/img/soria.jpg" alt="Escudo SORIA" width="30"></div></td>
                     <td>SORIA</td>
                     <td>2</td>
                     <td>0</td>
@@ -134,7 +143,7 @@
                     <td class="hidden">13</td>
                     <td class="hidden">60</td>
                     <td class="hidden">-47</td>
-                    <td>2</td>
+                    <td class="sticky-right">2</td>
                 </tr>
                 
             </tbody>
