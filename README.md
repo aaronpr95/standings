@@ -18,8 +18,7 @@ See: https://aaronpr95.github.io/standings/
         └── J2 - PD.pdf
     ```
 
-
-2. GitHub actinos will generate a new version.
+2. GitHub actinos will generate a new version on push.
 
 
 ## Files
