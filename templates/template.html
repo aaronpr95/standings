@@ -30,6 +30,7 @@
       </nav>
 
     <div class="container-fluid px-0 px-mb-3 table-responsive-sm">
+        <div class="table-container">
         <table class="table-custom short-mode">
             <thead>
                 <tr>
@@ -46,7 +47,7 @@
                     <th class="sticky-right">Puntos</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                 {% for team in teams %}
                 <tr class="{{ team.descent_class }}">
                     <td class="sticky-col"><div class="team-info"> {{ team.position }} <img src="{{ team.badge_path }}" alt="Escudo {{ team.name }}" width="30"></div></td>
@@ -64,6 +65,7 @@
                 {% endfor %}
             </tbody>
         </table>
+        </div>
     </div>    
     <div class="toggle-container">
         <button type="button" class="btn btn-primary" id="toggleView">Ver Detalles</button>
