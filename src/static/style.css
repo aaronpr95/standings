@@ -143,7 +143,7 @@ td:nth-child(3) {
 
 /* Descent styles */
 tbody tr.descent {
-    background-color: #ffdcdc; /* red color to descent */
+    background-color: #ffcfcf; /* red color to descent */
     color: #a94442;
 }
 
@@ -153,7 +153,12 @@ tbody tr.descent td:nth-child(12) {
 }
 
 tbody tr.descent:nth-child(even) {
-    background-color: #ffebeb; /* light red to even rows */
+    background-color: #ffe0e0; /* light red to even rows */
+}
+
+tbody tr.descent:hover {
+    background-color: #ffa5a5;
+    cursor: pointer;
 }
 
 /* To index.html */
@@ -166,7 +171,7 @@ tbody tr.descent:nth-child(even) {
     display: inline-block;
     padding: 12px 25px;
     margin: 15px;
-    background-color: #007bff; /* Color principal */
+    background-color: #007bff; 
     color: #fff;
     text-decoration: none;
     font-size: 1.1em;
@@ -177,10 +182,10 @@ tbody tr.descent:nth-child(even) {
 }
 
 .selection-button:hover {
-    background-color: #0056b3; /* Color más oscuro en hover */
-    transform: scale(1.05);    /* Ligero aumento en tamaño */
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 .selection-button:active {
-    background-color: #003373; /* Color más oscuro al hacer clic */
+    background-color: #003373;
 }
